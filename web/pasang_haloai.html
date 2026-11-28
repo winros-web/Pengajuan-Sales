@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pasang Isi dari Gio</title>
+<style>
+:root{--bg:#f6f7f9;--kartu:#fff;--teks:#1d2430;--redup:#5b6676;--aksen:#1f7a4d;--garis:#dde2e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161d;--kartu:#1a212b;--teks:#e6ebf1;--redup:#9aa6b5;--aksen:#4cc38a;--garis:#2a3442}}
+body{margin:0;background:var(--bg);color:var(--teks);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:640px;margin:0 auto;padding:28px 16px}
+h1{font-size:22px;margin:0 0 6px}
+p.sub{color:var(--redup);margin:0 0 22px}
+.kartu{background:var(--kartu);border:1px solid var(--garis);border-radius:12px;padding:18px;margin-bottom:16px}
+.tombol{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--aksen);color:#fff;font-weight:700;
+  text-decoration:none;font-size:16px;cursor:grab;user-select:none}
+ol{padding-left:22px;margin:8px 0 0}
+li{margin:6px 0}
+kbd{border:1px solid var(--garis);border-bottom-width:2px;border-radius:5px;padding:0 6px;font:13px ui-monospace,monospace}
+.catatan{color:var(--redup);font-size:13.5px}
+</style></head>
+<body><main>
+<h1>Pasang &ldquo;Isi dari Gio&rdquo; untuk HaloAI</h1>
+<p class="sub">Sekali saja per komputer. Gunanya: saat tombol <b>&#128228; HaloAI</b> di dashboard Tagih WA diklik, chat toko
+dan pesannya terisi sendiri di HaloAI.</p>
+
+<div class="kartu">
+<b>Langkah 1 &mdash; munculkan bilah bookmark</b>
+<ol><li>Windows: tekan <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd></li>
+<li>MacBook: tekan <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd></li></ol>
+<p class="catatan">Bilah tipis muncul tepat di bawah kotak alamat Chrome.</p>
+</div>
+
+<div class="kartu">
+<b>Langkah 2 &mdash; SERET tombol hijau ini ke bilah bookmark</b>
+<p style="margin:14px 0"><a class="tombol" href="javascript:%28async%20%28%29%20%3D%3E%20%7B%0A%20%20const%20h%20%3D%20location.hash%2C%20i%20%3D%20h.indexOf%28%22gio-kirim%3D%22%29%3B%0A%20%20const%20pita%20%3D%20%28t%2C%20b%29%20%3D%3E%20%7B%20let%20p%20%3D%20document.getElementById%28%22gio-pita%22%29%3B%20if%20%28%21p%29%20%7B%20p%20%3D%20document.createElement%28%22div%22%29%3B%20p.id%20%3D%20%22gio-pita%22%3B%20document.body.appendChild%28p%29%3B%20%7D%20p.style.cssText%20%3D%20%22position%3Afixed%3Bleft%3A50%25%3Btop%3A12px%3Btransform%3AtranslateX%28-50%25%29%3Bz-index%3A99999%3Bpadding%3A10px%2016px%3Bborder-radius%3A10px%3Bfont%3A600%2014px%20system-ui%3Bbox-shadow%3A0%206px%2020px%20rgba%280%2C0%2C0%2C.2%29%3Bbackground%3A%22%20%2B%20%28b%20%3F%20%22%23fde2e1%3Bcolor%3A%239b1c1c%22%20%3A%20%22%23e3f6e8%3Bcolor%3A%2314532d%22%29%3B%20p.textContent%20%3D%20t%3B%20clearTimeout%28p._t%29%3B%20p._t%20%3D%20setTimeout%28%28%29%20%3D%3E%20p.remove%28%29%2C%209000%29%3B%20%7D%3B%0A%20%20if%20%28i%20%3C%200%29%20%7B%20pita%28%22Gio%3A%20belum%20ada%20pesan%20dari%20dashboard.%20Klik%20template%20di%20dashboard%20dulu.%22%2C%201%29%3B%20return%3B%20%7D%0A%20%20let%20d%3B%20try%20%7B%20d%20%3D%20JSON.parse%28decodeURIComponent%28escape%28atob%28decodeURIComponent%28h.slice%28i%20%2B%2010%29%29%29%29%29%29%3B%20%7D%20catch%20%28e%29%20%7B%20pita%28%22Gio%3A%20data%20pesan%20rusak.%22%2C%201%29%3B%20return%3B%20%7D%0A%20%20history.replaceState%28null%2C%20%22%22%2C%20location.pathname%20%2B%20location.search%29%3B%0A%20%20const%20tidur%20%3D%20%28ms%29%20%3D%3E%20new%20Promise%28%28r%29%20%3D%3E%20setTimeout%28r%2C%20ms%29%29%3B%0A%20%20const%20lihat%20%3D%20%28e%29%20%3D%3E%20%21%21e%20%26%26%20e.getClientRects%28%29.length%20%3E%200%20%26%26%20getComputedStyle%28e%29.visibility%20%21%3D%3D%20%22hidden%22%3B%0A%20%20const%20tunggu%20%3D%20async%20%28f%2C%20ms%20%3D%2015000%29%20%3D%3E%20%7B%20const%20m%20%3D%20Date.now%28%29%3B%20for%20%28%3B%3B%29%20%7B%20const%20x%20%3D%20f%28%29%3B%20if%20%28x%29%20return%20x%3B%20if%20%28Date.now%28%29%20-%20m%20%3E%20ms%29%20throw%20new%20Error%28%22elemen%20tidak%20ketemu%22%29%3B%20await%20tidur%28250%29%3B%20%7D%20%7D%3B%0A%20%20const%20teks%20%3D%20%28re%29%20%3D%3E%20%7B%20const%20c%20%3D%20%5B...document.querySelectorAll%28%22button%2C%5Brole%3Dmenuitem%5D%2C%5Brole%3Doption%5D%2Cdiv%2Cspan%22%29%5D.filter%28%28e%29%20%3D%3E%20lihat%28e%29%20%26%26%20re.test%28%28e.innerText%20%7C%7C%20%22%22%29.trim%28%29%29%20%26%26%20%28e.innerText%20%7C%7C%20%22%22%29.trim%28%29.length%20%3C%2060%29%3B%20const%20e%20%3D%20c.filter%28%28e%29%20%3D%3E%20%21c.some%28%28x%29%20%3D%3E%20x%20%21%3D%3D%20e%20%26%26%20e.contains%28x%29%29%29%5B0%5D%3B%20return%20e%20%3F%20%28e.closest%28%22%5Brole%3Dmenuitem%5D%2Cbutton%2C%5Brole%3Doption%5D%22%29%20%7C%7C%20e%29%20%3A%20null%3B%20%7D%3B%0A%20%20try%20%7B%0A%20%20%20%20pita%28%22Gio%3A%20membuka%20chat%20%22%20%2B%20d.nomor%20%2B%20%22%20%E2%80%A6%22%29%3B%0A%20%20%20%20let%20q%20%3D%20null%3B%0A%20%20%20%20for%20%28let%20k%20%3D%200%3B%20k%20%3C%2020%20%26%26%20%21q%3B%20k%2B%2B%29%20%7B%20const%20b%20%3D%20document.querySelector%28%27button%5Baria-label%3D%22Tulis%20chat%20baru%22%5D%27%29%3B%20if%20%28b%29%20b.click%28%29%3B%20await%20tidur%28800%29%3B%20q%20%3D%20teks%28%2F%5EQuick%20Send%2Fi%29%3B%20%7D%0A%20%20%20%20if%20%28%21q%29%20throw%20new%20Error%28%22menu%20Quick%20Send%20tidak%20muncul%22%29%3B%0A%20%20%20%20q.click%28%29%3B%0A%20%20%20%20const%20inp%20%3D%20await%20tunggu%28%28%29%20%3D%3E%20%5B...document.querySelectorAll%28%22input%22%29%5D.find%28%28x%29%20%3D%3E%20lihat%28x%29%20%26%26%20%2FMasukkan%20nomor%2Fi.test%28x.placeholder%20%7C%7C%20%22%22%29%29%29%3B%0A%20%20%20%20inp.focus%28%29%3B%20Object.getOwnPropertyDescriptor%28HTMLInputElement.prototype%2C%20%22value%22%29.set.call%28inp%2C%20d.nomor%29%3B%0A%20%20%20%20inp.dispatchEvent%28new%20Event%28%22input%22%2C%20%7B%20bubbles%3A%20true%20%7D%29%29%3B%20inp.dispatchEvent%28new%20Event%28%22change%22%2C%20%7B%20bubbles%3A%20true%20%7D%29%29%3B%0A%20%20%20%20await%20tidur%28400%29%3B%0A%20%20%20%20%28await%20tunggu%28%28%29%20%3D%3E%20%5B...document.querySelectorAll%28%22button%22%29%5D.find%28%28b%29%20%3D%3E%20lihat%28b%29%20%26%26%20%2FMulai%20percakapan%2Fi.test%28b.innerText%20%7C%7C%20%22%22%29%20%26%26%20%21b.disabled%29%29%29.click%28%29%3B%0A%20%20%20%20await%20tidur%281500%29%3B%0A%20%20%20%20let%20ed%20%3D%20%5B...document.querySelectorAll%28%27%5Bcontenteditable%3D%22true%22%5D%27%29%5D.find%28lihat%29%3B%0A%20%20%20%20if%20%28%21ed%29%20%7B%20const%20bm%20%3D%20teks%28%2F%5EBalas%20manual%2Fi%29%3B%20if%20%28bm%29%20bm.click%28%29%3B%20%7D%0A%20%20%20%20ed%20%3D%20await%20tunggu%28%28%29%20%3D%3E%20%5B...document.querySelectorAll%28%27%5Bcontenteditable%3D%22true%22%5D%27%29%5D.find%28lihat%29%29%3B%0A%20%20%20%20ed.focus%28%29%3B%20if%20%28d.teks%29%20document.execCommand%28%22insertText%22%2C%20false%2C%20d.teks%29%3B%0A%20%20%20%20pita%28%22Gio%3A%20pesan%20untuk%20%22%20%2B%20d.nomor%20%2B%20%22%20sudah%20terisi%20-%20periksa%20lalu%20klik%20Kirim.%22%29%3B%0A%20%20%7D%20catch%20%28e%29%20%7B%0A%20%20%20%20try%20%7B%20await%20navigator.clipboard.writeText%28d.teks%20%7C%7C%20%22%22%29%3B%20%7D%20catch%20%28e2%29%20%7B%20%20%7D%0A%20%20%20%20pita%28%22Gio%3A%20gagal%20mengisi%20otomatis%20%28%22%20%2B%20e.message%20%2B%20%22%29.%20Pesan%20sudah%20disalin%20-%20tempel%20di%20chat%20%22%20%2B%20d.nomor%20%2B%20%22%20%28Ctrl%2BV%29.%22%2C%201%29%3B%0A%20%20%7D%0A%7D%29%28%29%3B" onclick="alert('Jangan diklik di sini - SERET (tahan klik lalu geser) tombol ini ke bilah bookmark di atas.');return false">&#11088; Isi dari Gio (HaloAI)</a></p>
+<p class="catatan">Tahan klik kiri pada tombol, geser ke bilah bookmark, lalu lepaskan. Jangan diklik di halaman ini.</p>
+</div>
+
+<div class="kartu">
+<b>Cara pakai sehari-hari</b>
+<ol><li>Di dashboard <b>Tagih via WA</b>, klik <b>&#128228; HaloAI</b> pada toko yang mau ditagih.</li>
+<li>Tab HaloAI terbuka. Klik bookmark <b>&#11088; Isi dari Gio</b> di bilah bookmark.</li>
+<li>Chat toko terbuka dan pesannya terisi. Kalau komputer ini punya Pembantu Gio, klik kotak chat lalu
+<kbd>Ctrl</kbd>+<kbd>V</kbd> (Mac: <kbd>Cmd</kbd>+<kbd>V</kbd>) untuk menempel PDF rincian dan foto nota.</li>
+<li>Periksa nama toko di chat, lalu tekan Kirim.</li></ol>
+</div>
+<p class="catatan">Komputer lain di kantor perlu memasang ini sendiri-sendiri. Sudah pernah memasang? Tidak perlu diulang.</p>
+</main></body></html>

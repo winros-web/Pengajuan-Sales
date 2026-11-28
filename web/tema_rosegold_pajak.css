@@ -1,0 +1,74 @@
+/* Tema Rosegold untuk halaman pajak/ Pengajuan-Sales (Kak Intan 21 Nov 2026: "kok yang pajak belum yaa").
+   Hanya lapisan warna di atas dashboard_pajak/index.html (yang aslinya tidak diubah). Ditempel skrip/bangun.py. */
+html, body { background: #fdf4f1 !important; color: #45292f !important; }
+body { background: radial-gradient(1100px 480px at 100% -10%, #ffe3ec 0%, transparent 60%),
+  radial-gradient(900px 500px at -10% 110%, #fff0db 0%, transparent 55%), #fdf4f1 !important; }
+.sd {
+  --sd-bg: transparent !important; --sd-kartu: #ffffff !important; --sd-kartu-2: #fff7f4 !important; --sd-teks: #45292f !important;
+  --sd-redup: #8d6a70 !important; --sd-garis: #f1dcd6 !important; --sd-aksen: #b76e79 !important;
+  --sd-hijau: #2c9a68 !important; --sd-kuning: #c27a12 !important; --sd-merah: #d4405f !important;
+  --sd-l-hijau: #e1f6ea !important; --sd-l-kuning: #fff1d9 !important; --sd-l-merah: #fde4ea !important; --sd-l-abu: #f6e9e6 !important;
+  --sd-f: "Nunito", "Segoe UI", system-ui, sans-serif !important;
+  color-scheme: light !important; background: transparent !important;
+}
+.sd h1, .sd h2, .sd button, .sd select, .sd label, .sd th, .sd .px-kpi .lbl, .sd .px-pill, .sd summary, .sd .sd-up,
+.sd .sd-cab, .sd .sd-vonis .besar, .sd .sd-m .judul { letter-spacing: .02em !important; }
+.sd h1 { font-weight: 800 !important; color: #6b3f47; }
+.sd .px-card h2, .sd .sd-h2 { font-weight: 800 !important; color: #6b3f47; }
+
+/* merek raksasa & pita atas */
+.sd-raksasa svg { opacity: .55 !important; color: #e3b4ab; fill: #e3b4ab; }
+.sd-atas .merek { color: #b76e79; font-weight: 800 !important; }
+
+/* kartu: putih, sudut bulat, bayangan lembut; kartu angka pastel warna-warni */
+.sd .px-card, .sd .sd-vonis, .sd details.sd-kamus { background: #fff !important; border: 1px solid #f1dcd6 !important; border-radius: 16px !important;
+  box-shadow: 0 6px 20px -12px rgba(183,110,121,.35); }
+.sd .px-kpi, .sd .sd-cab { border: 0 !important; border-radius: 16px !important; box-shadow: 0 6px 18px -10px rgba(120,60,70,.35); color: #4a2b31 !important;
+  background: linear-gradient(135deg, var(--k1, #ffe1e7), var(--k2, #ffd0d8)) !important; }
+.sd .px-kpi:nth-child(6n+2), .sd .sd-cab:nth-child(6n+2) { --k1: #fff0d6; --k2: #ffe0b2; }
+.sd .px-kpi:nth-child(6n+3), .sd .sd-cab:nth-child(6n+3) { --k1: #efe3ff; --k2: #e1cff9; }
+.sd .px-kpi:nth-child(6n+4), .sd .sd-cab:nth-child(6n+4) { --k1: #dcf5ec; --k2: #c6ecdd; }
+.sd .px-kpi:nth-child(6n+5), .sd .sd-cab:nth-child(6n+5) { --k1: #dff1fb; --k2: #c9e6f6; }
+.sd .px-kpi:nth-child(6n+6), .sd .sd-cab:nth-child(6n+6) { --k1: #fde6d9; --k2: #f8cfbb; }
+.sd .sd-cab:hover, .sd .sd-cab.dipilih { box-shadow: 0 0 0 3px #b76e79, 0 10px 22px -10px rgba(183,110,121,.6) !important; transform: translateY(-2px); }
+.sd .sd-cab { transition: transform .15s, box-shadow .15s; }
+.sd .px-kpi .val, .sd .sd-cab .nilai { font-weight: 800 !important; color: #3f2228; }
+.sd .sd-m { border-radius: 16px !important; box-shadow: 0 6px 18px -12px rgba(120,60,70,.35); }
+.sd .sd-m .bulat, .sd .sd-m .langkah, .sd .sd-angka div { background: #fff !important; }
+.sd .sd-cincin div { background: #fff !important; }
+
+/* tab / tombol / isian */
+.sd .px-tab, .sd .lk-tab { background: #fff !important; border: 1px solid #e3b9b1 !important; color: #8d5560 !important; }
+.sd .px-tab:hover, .sd .lk-tab:hover { background: #fbe6e3 !important; border-color: #b76e79 !important; }
+.sd .px-tab[aria-selected="true"], .sd .lk-tab[aria-selected="true"] { background: linear-gradient(90deg, #b76e79, #d8a39a) !important; color: #fff !important;
+  border-color: #b76e79 !important; box-shadow: 0 4px 12px -4px rgba(183,110,121,.7); }
+.sd-tombol { background: #fff !important; border: 1px solid #e3b9b1 !important; color: #b76e79 !important; }
+.sd-tombol:hover { background: #fbe6e3 !important; border-color: #b76e79 !important; }
+.sd .sd-m .sd-tombol { background: linear-gradient(180deg, #c77f8a, #b06571) !important; color: #fff !important; border: 0 !important; }
+.sd .px-ctl select, .sd .px-ctl input, .sd select, .sd input:not([type=checkbox]):not([type=radio]) {
+  background-color: #fff !important; color: #45292f !important; border: 1px solid #e9cbc4 !important; }
+.sd input[type=checkbox], .sd input[type=radio] { accent-color: #b76e79; }
+.sd .sd-langkah span.aktif { border-color: #b76e79 !important; color: #b76e79 !important; background: #fbe6e3; }
+.px-kunci input { background: #fff !important; color: #45292f !important; border: 1px solid #e9cbc4 !important; }
+.px-kunci button { background: linear-gradient(180deg, #c77f8a, #b06571) !important; color: #fff !important; }
+.px-kunci .galat { color: #d4405f !important; }
+
+/* tabel gaya Accurate */
+.sd .px th, .sd th { background: #fbe4e0 !important; color: #6b3f47 !important; font-weight: 800; }
+.sd tbody tr:nth-child(even) td { background: #fffafa; }
+.sd tbody tr:hover td { background: #fdeeee !important; }
+.sd td { border-color: #f6e6e2 !important; }
+.px-drive a:hover, .px-drive-folder a:hover { background: #b76e79 !important; color: #fff !important; }
+th .gx-btn.aktif { background: #b76e79 !important; }
+.gx-pop { background: #fff !important; color: #45292f !important; border-color: #ecc9c2 !important; border-radius: 14px !important; }
+.dash-skeleton { background: #f6e3df !important; }
+
+/* layar pembuka (kerangka bersandi) */
+#masuk .raksasa { color: #d8a39a !important; opacity: .6 !important; }
+#masuk h1 { color: #b76e79 !important; }
+#sandi, #masuk input { background: #fff !important; color: #45292f !important; border: 1px solid #e9cbc4 !important; }
+#sandi::placeholder, #masuk input::placeholder { color: #b8959a !important; }
+#masuk button { background: linear-gradient(180deg, #c77f8a, #b06571) !important; color: #fff !important; border: 0 !important; }
+#galat { color: #d4405f !important; }
+#webKaki, #masuk .catatan { color: #8d6a70 !important; }
+#webKaki a { color: #b76e79 !important; }

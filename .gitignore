@@ -1,0 +1,8 @@
+# rahasia & data mentah tidak pernah masuk repo publik
+.env
+*.dpapi
+*.log
+log/
+__pycache__/
+*.bak*
+bot/bot.lock
